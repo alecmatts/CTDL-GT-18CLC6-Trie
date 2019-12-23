@@ -23,6 +23,25 @@ Trie BuildTrie(string FileName)
 	return newTree;
 }
 
+string ReadFile(string FileName)
+{
+	string data;
+	ifstream fin;
+	fin.open(FileName);
+	if (!fin.is_open())
+		return data;
+	
+	while (!fin.eof()) {
+		string temp;
+		fin >> temp;
+		data.append(temp);
+	}
+
+	fin.close();
+
+	return data;
+}
+
 vector<string> findAllWordExist(Trie Tree, vector<string> Combination) {
 	vector<string> WordList;
 
