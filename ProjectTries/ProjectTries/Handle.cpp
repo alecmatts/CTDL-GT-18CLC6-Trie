@@ -89,6 +89,8 @@ vector<string> generateWordList(Trie Tree, string data)
 		r++;
 	}
 
+	WordList.erase(unique(WordList.begin(), WordList.end()), WordList.end());
+
 	return WordList;
 }
 
