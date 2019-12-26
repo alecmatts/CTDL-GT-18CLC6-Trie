@@ -89,9 +89,21 @@ vector<string> generateWordList(Trie Tree, string data)
 		r++;
 	}
 
-	WordList.erase(unique(WordList.begin(), WordList.end()), WordList.end());
+	RemoveDuplicates(WordList);
 
 	return WordList;
+}
+
+void RemoveDuplicates(vector<string> &WordList) { // O(n) complexity
+	auto itr = WordList.begin();
+	unordered_set<string> s;
+
+	for (auto curr = WordList.begin(); curr != WordList.end(); ++curr) {
+		if (s.insert(*curr).second)
+			*itr++ = *curr;
+	}
+
+	WordList.erase(itr, WordList.end());
 }
 
 void WriteFile(string FileName, vector<string> WordList)
