@@ -1,5 +1,5 @@
 #pragma once
-#include "Trie.h"
+#include "7_Trie.h"
 #include <fstream>
 #include <vector>
 
