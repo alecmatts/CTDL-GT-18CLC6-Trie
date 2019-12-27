@@ -42,17 +42,17 @@ string ReadFile(string FileName)
 	return data;
 }
 
-vector<string> generateWordList(Trie Tree, string Data)
+vector<string> generateListOfWOrds(Trie Tree, string Data)
 {
-	vector<string> WordList;
+	vector<string> ListOfWOrds;
 	string CurrentString;	
 
-	Tree.TraversalTree(Tree.getRoot(), Data, CurrentString, WordList, Data.length());
+	Tree.TraversalTree(Tree.getRoot(), Data, CurrentString, ListOfWOrds, Data.length());
 
-	return WordList;
+	return ListOfWOrds;
 }
 
-void WriteFile(string FileName, vector<string> WordList)
+void WriteFile(string FileName, vector<string> ListOfWOrds)
 {
 	ofstream fout;
 	fout.open(FileName);
@@ -62,10 +62,10 @@ void WriteFile(string FileName, vector<string> WordList)
 		return;
 	}
 
-	fout << WordList.size() << endl;
+	fout << ListOfWOrds.size() << endl;
 
-	for (size_t i = 0; i < WordList.size(); i++) {
-		fout << WordList[i] << endl;
+	for (size_t i = 0; i < ListOfWOrds.size(); i++) {
+		fout << ListOfWOrds[i] << endl;
 	}
 
 	fout.close();
