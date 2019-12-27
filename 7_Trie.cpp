@@ -33,32 +33,33 @@ void Trie::Insert(string data)
 	temp->EndOfWord = true;
 }
 
-void Trie::TraversalTree(Node* Root, string& Data, string& CurrentString, vector<string>& WordList, int DataLength, int MinChar)
+void Trie::TraversalTree(Node* Root, string& Data, string& CurrentString, vector<string>& ListOfWords, int DataLength)
 {
 	Node* Current = Root;
 
 	if (Current->isWord() == true && CurrentString.length() >= 3)
 	{
-		WordList.push_back(CurrentString);
+		ListOfWords.push_back(CurrentString);
+		
+		if (CurrentString.length() == DataLength) return;	
 	}
-
-	if (CurrentString.length() == DataLength)
-		return;
 
 	for (size_t i = 0; i < 26; i++)
 	{
-		if (Current->Children[i] == nullptr)
-			continue;
-		if (Data.find(Current->Children[i]->Character) == string::npos)
-			continue;
+		if (Current->Children[i] != nullptr && 
+		    Data.find(Current->Children[i]->Character) != -1 )
+		{
+			//string CurrentWord(1, Data[Data.find(Current->Children[i]->Character)]);
+			// kiểu char sẽ chạy nhanh hơn
+			char CurrentWord = Current->Children[i]->Character;
+		
+			CurrentString += CurrentWord;
+			Data.erase(Data.find(CurrentWord), 1);
 
-		string CurrentWord(1, Data[Data.find(Current->Children[i]->Character)]);
-		CurrentString += CurrentWord;
-		Data.erase(Data.find(Current->Children[i]->Character), 1);
+			(*this).TraversalTree(Current->Children[i], Data, CurrentString, ListOfWords, DataLength);
 
-		(*this).TraversalTree(Current->Children[i], Data, CurrentString, WordList, DataLength, MinChar);
-
-		CurrentString.pop_back();
-		Data += CurrentWord;
+			CurrentString.pop_back();
+			Data += CurrentWord;
+		}
 	}
 }
