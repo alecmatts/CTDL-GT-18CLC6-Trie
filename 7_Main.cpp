@@ -6,9 +6,9 @@ int main()
 
 	string data = ReadFile("input.txt");
 
-	vector<string> WordList = generateWordList(TrieTree, data);
+	vector<string> ListOfWOrds = generateListOfWOrds(TrieTree, data);
 
-	WriteFile("output.txt", WordList);
+	WriteFile("output.txt", ListOfWOrds);
 	
 	return 0;
 }
