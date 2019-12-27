@@ -47,7 +47,7 @@ vector<string> generateWordList(Trie Tree, string Data)
 	vector<string> WordList;
 	string CurrentString;	
 
-	Tree.TraversalTree(Tree.getRoot(), Data, CurrentString, WordList, Data.length(), 3);
+	Tree.TraversalTree(Tree.getRoot(), Data, CurrentString, WordList, Data.length());
 
 	return WordList;
 }
