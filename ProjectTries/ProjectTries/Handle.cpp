@@ -1,4 +1,4 @@
-#include "7_Handle.h"
+#include "Handle.h"
 
 Trie BuildTrie(string FileName)
 {

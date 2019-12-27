@@ -1,5 +1,5 @@
 #pragma once
-#include "7_Trie.h"
+#include "Trie.h"
 
 class Node 
 {

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "7_Node.h"
+#include "Node.h"
 using namespace std;
 
 class Trie

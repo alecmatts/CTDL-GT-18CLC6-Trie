@@ -1,4 +1,4 @@
-#include "7_Trie.h"
+#include "Trie.h"
 
 Trie::Trie()
 {
