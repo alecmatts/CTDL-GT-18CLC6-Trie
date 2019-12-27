@@ -5,5 +5,5 @@
 
 Trie BuildTrie(string FileName);
 string ReadFile(string FileName);
-vector<string> generateWordList(Trie Tree, string data);
-void WriteFile(string FileName, vector<string> Wordlist);
+vector<string> generateListOfWOrds(Trie Tree, string data);
+void WriteFile(string FileName, vector<string> ListOfWOrds);
