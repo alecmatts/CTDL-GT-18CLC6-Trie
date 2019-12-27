@@ -18,5 +18,5 @@ public:
 
 	void Insert(string data); 
 
-	void TraversalTree(Node* Root, string& Data, string& CurrentString, vector<string>& WordList, int DataLength, int MinChar);
+	void TraversalTree(Node* Root, string& Data, string& CurrentString, vector<string>& WordList, int DataLength);
 };
