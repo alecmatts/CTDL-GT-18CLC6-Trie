@@ -42,9 +42,6 @@ void Trie::TraversalTree(Node* Root, string& Data, string& CurrentString, vector
 		WordList.push_back(CurrentString);
 	}
 
-	if (CurrentString.length() == DataLength)
-		return;
-
 	for (size_t i = 0; i < 26; i++)
 	{
 		if (Current->Children[i] == nullptr)
