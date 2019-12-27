@@ -4,7 +4,7 @@
 class Node 
 {
 	friend class Trie;
-public:
+private:
 	char Character;
 	bool EndOfWord;
 
@@ -15,6 +15,4 @@ public:
 
 	void setEndOfWord(bool LogicalValue);
 	void setCharacter(char c);
-
-	bool isWord();
 };

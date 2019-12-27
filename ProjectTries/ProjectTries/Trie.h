@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <vector>
 #include "Node.h"
 using namespace std;
 
@@ -14,9 +13,6 @@ public:
 	Trie();
 	~Trie() {}
 
-	Node* getRoot();
-
 	void Insert(string data); 
-
-	void TraversalTree(Node* Root, string& Data, string& CurrentString, vector<string>& WordList, int DataLength, int MinChar);
+	bool Search(string data);
 };

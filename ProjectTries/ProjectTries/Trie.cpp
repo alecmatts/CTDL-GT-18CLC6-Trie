@@ -5,11 +5,6 @@ Trie::Trie()
 	Root = new Node();
 }
 
-Node* Trie::getRoot()
-{
-	return this->Root;
-}
-
 void Trie::Insert(string data)
 {
 	Node* temp = Root;
@@ -33,29 +28,19 @@ void Trie::Insert(string data)
 	temp->EndOfWord = true;
 }
 
-void Trie::TraversalTree(Node* Root, string& Data, string& CurrentString, vector<string>& WordList, int DataLength, int MinChar)
+bool Trie::Search(string data) 
 {
-	Node* Current = Root;
+	Node* temp = Root;
 
-	if (Current->isWord() == true && CurrentString.length() >= 3)
+	for (size_t i = 0; i < data.length(); i++) 
 	{
-		WordList.push_back(CurrentString);
+		int ASCII = static_cast<int>(data[i]) - 97;
+
+		temp = temp->Children[ASCII];
+
+		if (temp == nullptr) 
+			return false;
 	}
 
-	for (size_t i = 0; i < 26; i++)
-	{
-		if (Current->Children[i] == nullptr)
-			continue;
-		if (Data.find(Current->Children[i]->Character) == string::npos)
-			continue;
-
-		string CurrentWord(1, Data[Data.find(Current->Children[i]->Character)]);
-		CurrentString += CurrentWord;
-		Data.erase(Data.find(Current->Children[i]->Character), 1);
-
-		(*this).TraversalTree(Current->Children[i], Data, CurrentString, WordList, DataLength, MinChar);
-
-		CurrentString.pop_back();
-		Data += CurrentWord;
-	}
+	return temp->EndOfWord;
 }

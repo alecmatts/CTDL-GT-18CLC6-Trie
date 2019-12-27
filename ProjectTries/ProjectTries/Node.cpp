@@ -19,8 +19,3 @@ void Node::setCharacter(char c)
 { 
 	this->Character = c;
 }
-
-bool Node::isWord()
-{
-	return this->EndOfWord;
-}
